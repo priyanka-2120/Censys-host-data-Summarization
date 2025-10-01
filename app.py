@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, jsonify
 from flask_cors import CORS
 import json
 import os
-import urllib.request
+import urllib.request 
 import urllib.parse
 from dotenv import load_dotenv
 
@@ -177,4 +177,5 @@ def summarize():
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', '5000'))
+
     app.run(debug=True, host='127.0.0.1', port=port)
