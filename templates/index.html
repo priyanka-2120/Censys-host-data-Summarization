@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Censys Data Summarizer</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Censys Data Summarizer</h1>
+        <p>AI-powered analysis of Censys host data</p>
+      </header>
+
+      <div class="input-section">
+        <h2>Input Data</h2>
+        <div class="input-options">
+          <input
+            type="file"
+            id="file-input"
+            accept=".json"
+            class="file-input"
+          />
+          <button id="clear-btn" class="btn-secondary">Clear</button>
+        </div>
+        <textarea
+          id="data-input"
+          placeholder="Paste your JSON data here or upload a JSON file..."
+        ></textarea>
+        <button id="summarize-btn" class="btn-primary">Generate Summary</button>
+      </div>
+
+      <div id="loading" class="loading hidden">
+        <div class="spinner"></div>
+        <p>Analyzing data with AI...</p>
+      </div>
+
+      <div id="results" class="results hidden">
+        <h2>Analysis Results</h2>
+
+        <div class="metrics-section">
+          <h3>Quick Metrics</h3>
+          <div id="metrics" class="metrics-grid"></div>
+        </div>
+
+        <div class="summary-section">
+          <h3>AI Security Summary</h3>
+          <div id="summary-content" class="summary-content"></div>
+        </div>
+      </div>
+
+      <div id="error" class="error hidden">
+        <h3>Error</h3>
+        <p id="error-message"></p>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>
